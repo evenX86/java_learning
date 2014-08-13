@@ -22,6 +22,7 @@ public class EventStorage {
     public synchronized void set() {
         while (storage.size() == maxSize) {
             try {
+                
                 wait(); //必须在while中调用wait() 并且不断查询while的条件,直到条件为真时候才继续。
             } catch (InterruptedException e) {
                 e.printStackTrace();
