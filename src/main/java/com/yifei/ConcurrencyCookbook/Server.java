@@ -2,6 +2,7 @@ package com.yifei.ConcurrencyCookbook;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by xuyifei01 on 14-8-20.
@@ -31,6 +32,12 @@ public class Server {
             Task task = new Task("Täsk "+ i );
             server.ExecuteTask(task);
         }
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Completed Task : "+server.executor.getCompletedTaskCount());
         server.endServer();
     }
 }
