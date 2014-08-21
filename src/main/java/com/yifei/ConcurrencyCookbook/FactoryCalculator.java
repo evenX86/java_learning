@@ -50,7 +50,7 @@ public class FactoryCalculator implements Callable<Integer> {
                 System.out.printf("Main : Task %d : %s\n",i,result.isDone());
             }
             try {
-                TimeUnit.SECONDS.sleep(50);
+                TimeUnit.SECONDS.sleep(5);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

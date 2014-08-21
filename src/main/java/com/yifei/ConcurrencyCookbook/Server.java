@@ -29,7 +29,7 @@ public class Server {
     public static void main(String[] args) {
         Server server = new Server();
         for (int i=0;i<10;i++) {
-            Task task = new Task("Täsk "+ i );
+            Task task = new Task("Task "+ i );
             server.ExecuteTask(task);
         }
         try {
