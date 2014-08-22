@@ -15,11 +15,11 @@ public class UserValidator {
     }
     public boolean validate(String name,String password) {
         Random random = new Random();
-        long duration = (long) (Math.random()*10);
+
         try {
+            long duration = (long) (Math.random()*10);
             TimeUnit.SECONDS.sleep(duration);
         } catch (InterruptedException e) {
-            e.printStackTrace();
             return false;
         }
         return random.nextBoolean();
