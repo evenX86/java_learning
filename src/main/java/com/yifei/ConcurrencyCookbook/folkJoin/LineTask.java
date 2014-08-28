@@ -6,6 +6,7 @@ import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 用来计算所要查找的次在一行中出现的次数。
  * Created by xuyifei01 on 14-8-28.
  */
 public class LineTask extends RecursiveTask<Integer> {
