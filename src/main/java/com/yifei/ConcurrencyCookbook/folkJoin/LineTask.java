@@ -74,6 +74,7 @@ public class LineTask extends RecursiveTask<Integer> {
             System.out.println("**************************************");
         }
         pool.shutdown();
+
         try {
             pool.awaitTermination(1,TimeUnit.DAYS);
         } catch (InterruptedException e) {
