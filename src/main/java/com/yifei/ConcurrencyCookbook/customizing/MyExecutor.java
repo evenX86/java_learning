@@ -35,7 +35,7 @@ public class MyExecutor extends ThreadPoolExecutor {
     }
 
     protected void beforeExecute(Thread t, Runnable r) {
-        System.out.println(t.getName() + r.hashCode());
+        System.out.println("A task is Beginning :" + t.getName()+ " : " + r.hashCode());
         startTime.put(String.valueOf(r.hashCode()), new Date());
     }
 
@@ -43,7 +43,7 @@ public class MyExecutor extends ThreadPoolExecutor {
         Future<?> result = (Future<?>) r;
         try {
             System.out.println("***********************************");
-            System.out.println("A task has finished");
+            System.out.println("A task has finished: "+r.hashCode());
             System.out.println("Result :" + result.get());
             Date startDate = startTime.remove(String.valueOf(r.hashCode()));
             Date finishDate  = new Date();
