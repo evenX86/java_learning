@@ -25,6 +25,7 @@ public class Main {
         }
         executor.shutdown();
         //之前使用了executor.shutdownNow（）结果一直报线程interrrupt的exception
+        //shutdown() 方法在终止前允许执行以前提交的任务，而 shutdownNow() 方法阻止等待任务启动并试图停止当前正在执行的任务。
         try {
             executor.awaitTermination(1, TimeUnit.DAYS);
         } catch (InterruptedException e) {
