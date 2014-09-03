@@ -9,9 +9,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class Main {
     public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(2,2,1, TimeUnit.SECONDS,new PriorityBlockingQueue<Runnable>());
-        for (int i=0;i<4;i++) {
-            MyPriorityTask task = new MyPriorityTask(i,"Task"+i);
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 2, 1, TimeUnit.SECONDS, new PriorityBlockingQueue<Runnable>());
+        for (int i = 0; i < 4; i++) {
+            MyPriorityTask task = new MyPriorityTask(i, "Task" + i);
             executor.execute(task);
         }
         try {
@@ -19,13 +19,14 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        for (int i=4;i<8;i++) {
-            MyPriorityTask task = new MyPriorityTask(i,"Task "+i);
+        for (int i = 4; i < 8; i++) {
+            MyPriorityTask task = new MyPriorityTask(i, "Task " + i);
             executor.execute(task);
         }
-       // executor.shutdownNow();
+        executor.shutdown();
+        //之前使用了executor.shutdownNow（）结果一直报线程interrrupt的exception
         try {
-            executor.awaitTermination(1,TimeUnit.DAYS);
+            executor.awaitTermination(1, TimeUnit.DAYS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
